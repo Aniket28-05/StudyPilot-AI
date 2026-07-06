@@ -303,10 +303,10 @@ export default function ToDoList() {
                   <div className="flex items-center gap-3 shrink-0">
                     {/* Priority indicator */}
                     <span className={`text-[8px] font-bold px-2 py-0.5 rounded border uppercase tracking-wider ${task.priority === 'High'
-                        ? 'bg-red-950/30 text-red-400 border-red-900/20'
-                        : task.priority === 'Medium'
-                          ? 'bg-blue-950/30 text-blue-400 border-blue-900/20'
-                          : 'bg-gray-900 text-gray-400 border-gray-800'
+                      ? 'bg-red-950/30 text-red-400 border-red-900/20'
+                      : task.priority === 'Medium'
+                        ? 'bg-blue-950/30 text-blue-400 border-blue-900/20'
+                        : 'bg-gray-900 text-gray-400 border-gray-800'
                       }`}>
                       {task.priority}
                     </span>

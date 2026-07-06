@@ -48,8 +48,18 @@ export default function AIChat() {
 
   // Scroll to bottom on new messages
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const timer = setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+    return () => clearTimeout(timer);
   }, [messages, loading]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
 
   const handleCreateNewChat = () => {
     const titles = {
@@ -297,6 +307,9 @@ export default function AIChat() {
                       <p className="whitespace-pre-line">
                         {m.content}
                       </p>
+                      <span className="text-[9px] block text-right mt-1.5 opacity-60">
+                        {m.timestamp ? new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -344,14 +357,15 @@ export default function AIChat() {
 
           {/* Input text form */}
           <form onSubmit={handleSendMessage} className="flex gap-2">
-            <input
-              type="text"
+            <textarea
               required
+              rows={1}
               disabled={loading || !activeSessionId}
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder={activeSessionId ? "Ask a study question or request an outline..." : "Select or create a chat session to begin..."}
-              className="flex-1 py-3 px-4 rounded-xl text-sm glass-input disabled:opacity-40"
+              className="flex-1 py-3 px-4 rounded-xl text-sm glass-input disabled:opacity-40 resize-none h-[46px] overflow-y-auto leading-relaxed focus:outline-none"
             />
             <button
               type="submit"

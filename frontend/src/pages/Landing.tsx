@@ -1,8 +1,50 @@
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sparkles, Brain, Calendar, CheckSquare, Award, ArrowRight, Flame } from 'lucide-react';
 
 export default function Landing() {
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  const agents = [
+    {
+      emoji: '🧠',
+      title: 'Planner Agent',
+      desc: 'Generates personalized study roadmaps based on subjects, duration, and daily study hours.'
+    },
+    {
+      emoji: '📅',
+      title: 'Scheduler Agent',
+      desc: 'Organizes study sessions, deadlines, and weekly learning milestones.'
+    },
+    {
+      emoji: '📖',
+      title: 'Learning Agent',
+      desc: 'Provides study guidance, explanations, and educational assistance across multiple subjects.'
+    },
+    {
+      emoji: '🎯',
+      title: 'Productivity Agent',
+      desc: 'Tracks task completion, study progress, XP, and learning streaks.'
+    }
+  ];
 
   const features = [
     {
@@ -164,6 +206,35 @@ export default function Landing() {
           </div>
         </div>
       </main>
+
+      {/* Powered by AI Agents Section */}
+      <section 
+        ref={sectionRef}
+        className={`relative max-w-7xl mx-auto px-6 py-12 lg:py-16 z-10 border-t border-gray-900/60 w-full transition-all duration-1000 transform ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <div className="text-center max-w-xl mx-auto space-y-4 mb-12">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">Powered by AI Agents</h3>
+          <p className="text-sm text-gray-400">Collaborative intelligence working around the clock to streamline your academic journey.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {agents.map((agent) => {
+            return (
+              <div 
+                key={agent.title} 
+                className="glass-panel-interactive border border-gray-800 rounded-2xl p-6 flex flex-col justify-between hover:scale-[1.03] transition-all duration-300"
+              >
+                <div className="space-y-4">
+                  <div className="text-3xl">{agent.emoji}</div>
+                  <h4 className="font-bold text-lg text-white">{agent.title}</h4>
+                  <p className="text-xs text-gray-400 leading-relaxed">{agent.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
       {/* Features Grid Section */}
       <section id="features" className="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 border-t border-gray-900 z-10">
