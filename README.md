@@ -160,7 +160,7 @@ Version Control
 ![Landing](screenshots/landing2.png)
 
 ## Dashboard
-![Dashboard](screenshots/Dashboard%20(2).png(2))
+![Dashboard](screenshots/Dashboard(2).png)
 
 ## AI Chat
 ![AI Chat](screenshots/AIChat.png)
