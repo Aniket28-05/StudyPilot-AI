@@ -154,31 +154,31 @@ Version Control
 # 📸 Screenshots
 
 ## Landing Page
-![Landing](screenshots/landing.png)
+![Landing](screenshots/Landing.png)
 
 ## Landing Page 2
 ![Landing](screenshots/landing2.png)
 
 ## Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/Dashboard.png)
 
 ## AI Chat
-![AI Chat](screenshots/chat.png)
+![AI Chat](screenshots/AIChat.png)
 
 ## Study Planner
-![Study Planner](screenshots/planner.png)
+![Study Planner](screenshots/Planner.png)
 
 ## Smart To-Do
-![Todo](screenshots/todo.png)
+![Todo](screenshots/Todo.png)
 
 ## Calendar
-![Calendar](screenshots/calendar.png)
+![Calendar](screenshots/Calendar.png)
 
 ## Profile
-![Profile](screenshots/profile.png)
+![Profile](screenshots/Profile.png)
 
 ## Settings
-![Settings](screenshots/settings.png)
+![Settings](screenshots/Settings.png)
 
 ---
 
