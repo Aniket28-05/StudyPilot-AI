@@ -309,8 +309,6 @@ BCA Student | AI, Full Stack And Data Analytics Enthusiast
 GitHub:
 https://github.com/Aniket28-05
 
-LinkedIn:
-https://www.linkedin.com/in/aniket-kumar-36a6b3321
 
 ---
 
