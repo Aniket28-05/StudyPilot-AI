@@ -294,12 +294,6 @@ npm run build
 
 ---
 
-## 📂 GitHub Repository
-
-https://github.com/YOUR_USERNAME/StudyPilot-AI
-
----
-
 ## 🎥 Demo Video
 
 (Add YouTube Link Here)
